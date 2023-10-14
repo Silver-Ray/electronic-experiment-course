@@ -11,9 +11,9 @@ $$
 
 取 $R_F=100 \mathrm{K}\Omega, R_1=10 \mathrm{K} \Omega, R_2=5.1{\mathrm{K}}\Omega$
 
-当 $R_{s1}=R_{s2}=1 \mathrm{K}\Omega $时，$ v_1=v_{s}=0.3\mathrm{V}$, $v_2=\frac{v_s}{2}=0.15 \mathrm{V}$ ,
+当 $R_{s1}=R_{s2}=1 \mathrm{K}\Omega $时, $v_1=v_{s}=0.3\mathrm{V}$, $v_2=\frac{v_s}{2}=0.15 \mathrm{V}$ ,
 
-理论值$V_o=-(\frac{100k}{10k}\times0.3+\frac{100k}{5.1k}\times 0.15) = -5.941\mathrm{V}$
+理论值 $V_o=-(\frac{100k}{10k}\times0.3+\frac{100k}{5.1k}\times 0.15) = -5.941\mathrm{V}$
 
 仿真值 $V_{o}=5.708 \mathrm{V}$
 
