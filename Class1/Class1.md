@@ -20,11 +20,11 @@ $$
 
 ![反向比例加法-Rs2=1k](attachments/反向比例加法-Rs2=1k.png)
 
-当 $R_{s1}=1\mathrm{K}\Omega, R_{s_2}=500\Omega$时，$v_1=v_{s}=0.3 \mathrm{V}$, $v_2=\frac{v_s}{3}=0.1 \mathrm{V}$,
+当 $R_{s1}=1\mathrm{K}\Omega, R_{s_2}=500\Omega$时, $v_1=v_{s}=0.3 \mathrm{V}$, $v_2=\frac{v_s}{3}=0.1 \mathrm{V}$,
 
 理论值 $V_o=-(\frac{100k}{10k}\times0.3+\frac{100k}{5.1k}\times 0.1) = -4.961 \mathrm{V}$
 
-仿真值 $V_{o}=4.851 \mathrm{V}$
+仿真值 $V_{o}=-4.851 \mathrm{V}$
 
 ![反向比例加法-Rs2=500](attachments/反向比例加法-Rs2=500.png)
 
@@ -36,7 +36,7 @@ $$
 v_o(t)=-\frac{1}{R_1C} \int_{0}^{t} v_{t} \mathrm{d}t + v_{o}(0)
 $$
 
-仿真值 $v_{o}=276.77366mV$
+仿真值 $v_{omax}=276.77366mV$
 
 ![积分器波形](attachments/积分器波形.png)
 
@@ -46,8 +46,8 @@ $$
 ## 选做任务--高增益电压放大器
 
 $\diamond$ 设计一高增益电压放大器，要求：输入信号为正弦交流电压
-信号，峰峰值 $V_{ipp}=100mV$，频率 $f_i=10kHz$，输出信号峰峰
-值 $V_{opp}=24V$，且与输入信号反相。电路输入阻抗大于 $1M\Omega$，输出阻抗小于 $100\Omega$
+信号，峰峰值 $V_{ipp}=100\mathrm{mV}$，频率 $f_i=10\mathrm{kHz}$，输出信号峰峰
+值 $V_{opp}=24\mathrm{V}$，且与输入信号反相。电路输入阻抗大于 $1\mathrm{M\Omega}$，输出阻抗小于 $100\mathrm{\Omega}$
 
 （1）提出电路设计方案，画出电路原理图，要求标示出电阻
 元件参数和电源值；简述电路的工作原理。
