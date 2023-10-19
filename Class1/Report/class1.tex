@@ -333,6 +333,8 @@
 		                    & 100KΩ  & 1  \\ \hline
 		电容                  & 0.22μF & 1  \\ \hline
 	\end{tabular}
+	\caption{实验元器件表格}
+	\label{实验元器件表格}
 \end{table}
 
 \clearpage
@@ -340,15 +342,15 @@
 \section{实验任务}
 \subsection{研究电压跟随器的作用}
 
-(1)按图\ref{直接连接}连接电路。
-断开开关K。输入f=1kHz,Vipp=1V的正弦信号，用示波器观察输出波形。
+(1)按\reffig{直接连接}连接电路。
+断开开关K。输入$f=1 \mathrm{kHz},V_{ipp}=1 \mathrm{V}$的正弦信号，用示波器观察输出波形。
 
 闭合开关K。观察输出波形的变化情况。
 分别记录K闭合前、后信号源输出信号的峰-峰值，计算信号源的内阻Rs,并解释100Ω负载电阻连接到信号源上产生的负载效应。
 
 
-(2) 按图\ref{通过电压跟随器连接}连接电路。
-仍然从信号源送出频率为1kHz、峰峰值为1V的正弦信号，用示波器观察输入、输出波形(幅值与相位关系)。分别记录接上RL和去掉RL,两种情况下输出信号vo的大小，并解释观察到的实验现象。
+(2) 按\reffig{通过电压跟随器连接}连接电路。
+仍然从信号源送出频率为1kHz、峰峰值为1V的正弦信号，用示波器观察输入、输出波形(幅值与相位关系)。分别记录接上$\mathrm{R_L}$和去掉$\mathrm{R_L}$,两种情况下输出信号$\mathrm{v_o}$的大小，并解释观察到的实验现象。
 
 
 \begin{figure}[H]
@@ -366,32 +368,36 @@
 	\end{minipage}
 \end{figure}
 
-
 \subsection{反向比例加法电路}
 
-(1)按照图3-3在面包板上组装电路。电阻值取 $R_F=100k\Omega$, $R_1=10k\Omega$, $R_2= 5.1k\Omega$，安装电阻前先用万用表测试电阻值填入表中。
+(1)按照\reffig{加法器}在面包板上组装电路。电阻值取 $R_F=100 \mathrm{k}\Omega$, $R_1=10\mathrm{k}\Omega$, $R_2= 5.1\mathrm{k}\Omega$，安装电阻前先用万用表测试电阻值填入表中。
 
-(2)按照图3-3连接分压电路，其中$R_{s1}=R_{s2}=1k\Omega$.将v1和v2连至图3-3对应输入端。
+(2)按照\reffig{加法器}连接分压电路，其中$R_{s1}=R_{s2}=1\mathrm{k}\Omega$.将v1和v2连至图3-3对应输入端。
+
 
 (3)检查无误后接通电源。从信号源送出频率为1kHz、峰-峰值为300mV 的正弦信号。用示波器测得$v_1$、$v_2$和$v_o$。 填入表中，并记录它们的波形。
 
-(4)关闭电源，将$R_{s2}$改为$500\Omega$,检查无误后接通电源，再次用示波器测得v1、v2和vo填入表中。
+(4)关闭电源，将$R_{s2}$改为$\mathrm{500}\Omega$,检查无误后接通电源，再次用示波器测得v1、v2和vo填入表中。
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{加法器}
 	\caption{加法器}
+	\label{加法器}
 \end{figure}
 
 
 \subsection{积分电路}
-按照图3-4在面包板上组装电路。取$R_1=10k\Omega$,\space $R_F=100k\Omega$,$C=0.22μF$,$R_P= 10k\Omega$，输入f=200Hz,峰峰值为1V的正方波。用示波器测试$v_i$和$v_o$,并画出其波形。
+按照\reffig{积分器}在面包板上组装电路。取$R_1=10\mathrm{k}\Omega$,\space $R_F=100\mathrm{k}\Omega$,$C=0.22\mathrm{μF}$,$R_P= 10\mathrm{k}\Omega$，输入f=200Hz,峰峰值为1V的正方波。用示波器测试$v_i$和$v_o$,并画出其波形。
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{积分器}
 	\caption{积分器}
+	\label{积分器}
 \end{figure}
+
+\clearpage
 
 \section{实验原理}
 \subsection{反向比例加法电路}
@@ -408,24 +414,115 @@ $R_1, R_2, R_{F}$用于控制输出电压与输入电压的关系，可在运放
 \end{figure}
 
 \subsection{积分运算电路}
-积分运算电路的电路图如图3-4所示，当运算放大器开环电压增益足够大，且 $R_5$开路时，可认为 $i_{R}=i_{C}$，其中$i_R=\frac{V_i}{R_1}$， $i_c=-C \frac{dv_o(t)}{dt}$。设t=0时,电容器两端初始电压$v_o(O)$，则$v_o (t)=\int_{0}^{t} v_1(t) \mathrm{d}t+v_{o}(0)$。当 $v_o(0)=0$且输入信号$v_i(t)$为辐度为$V_i$的直流电压时，$v_o(t)=-\frac{1}{R_1C} \int_{0}^{t} V(t) \mathrm{d}t+v_o(0)=-\frac{1}{R_1C}V_it$，此时输出电压vo(t)的波形是随时间线性下降的，当输入信号为正方波时，输出电压的稳态波形如图所示。
+积分运算电路的电路图如\reffig{积分器}所示，当运算放大器开环电压增益足够大，且 $R_5$开路时，可认为 $i_{R}=i_{C}$，其中$i_R=\frac{V_i}{R_1}$， $i_c=-C \frac{dv_o(t)}{dt}$。设t=0时,电容器两端初始电压$v_o(O)$，则$v_o (t)=\int_{0}^{t} v_1(t) \mathrm{d}t+v_{o}(0)$。当 $v_o(0)=0$且输入信号$v_i(t)$为辐度为$V_i$的直流电压时，$v_o(t)=-\frac{1}{R_1C} \int_{0}^{t} V(t) \mathrm{d}t+v_o(0)=-\frac{1}{R_1C}V_it$，此时输出电压$v_o(t)$的波形是随时间线性下降的，当输入信号为正方波时，输出电压的稳态波形如图所示。
 
-实际电路中，反馈电阻Rf用于直流负反馈，目的是减小集成运算放大器输出端的直接漂移，且其阻值必须取得大一些，防止电路变成一阶低通滤波器。但同时Rf的加入会对电容C产生分流作用，进而导致积分误差。因此，一般选用的元器件应满足 $R_{f}C \gg R_1C$，以减小误差。
+实际电路中，反馈电阻$\mathrm{R_f}$用于直流负反馈，目的是减小集成运算放大器输出端的直接漂移，且其阻值必须取得大一些，防止电路变成一阶低通滤波器。但同时$\mathrm{Rf}$的加入会对电容C产生分流作用，进而导致积分误差。因此，一般选用的元器件应满足 $R_{f}C \gg R_1C$，以减小误差。
+
+\begin{figure}[H]
+	\begin{minipage}[t]{0.5\linewidth}
+		\centering
+		\includegraphics[width=1\textwidth]{积分电路}
+		\caption{积分电路}
+		\label{积分电路}
+	\end{minipage}%
+	\begin{minipage}[t]{0.5\linewidth}
+		\centering
+		\includegraphics[width=1\textwidth]{积分电路波形}
+		\caption{积分电路波形}
+		\label{积分电路波形}
+	\end{minipage}
+\end{figure}
+
+
+\section{实验过程}
+按照上图连接电路，运放NE5532采用 $\pm \mathrm{12V}$双电源供电：
+
+\subsection{电压跟随器实验}
+按\reffig{直接连接}连接电路，分别测得不接 $R_L$和接入 $R_L$时的$v_i$和 $v_o$，填入\reftab{电压跟随器的作用}：
+
+\begin{table}[H]
+	\center
+	\large
+	\begin{tabular}{|c|cc|cc|c|}
+		\hline
+		\multirow{2}{*}{} & \multicolumn{2}{c|}{不接$R_L$}     & \multicolumn{2}{c|}{接入$R_L$} & \multirow{2}{*}{计算$R_s$/$\Omega$}                       \\ \cline{2-5}
+		                  & \multicolumn{1}{c|}{$v_{ipp}$/V} & $v_{opp}$/V                  & \multicolumn{1}{c|}{$v_{ipp}$/V}  & $v_{opp}$/V &       \\ \hline
+		无电压跟随器            & \multicolumn{1}{c|}{1.000}       & -                            & \multicolumn{1}{c|}{0.675}        & -           & 48.86 \\ \hline
+		有电压跟随器            & \multicolumn{1}{c|}{1.020}       & 1.010                        & \multicolumn{1}{c|}{1.104}        & 1.010       & -     \\ \hline
+	\end{tabular}
+	\caption{电压跟随器的作用}
+	\label{电压跟随器的作用}
+\end{table}
+
+\subsection{反向比例加法运算电路实验}
+研究反向比例加法运算电路，在$v_i$端接入频率为1kHz、峰峰值为300mV的正弦波，直流偏置置零。示波器的两通道CH1、CH2分别接$v_1$、$v_2$和$v_1$、$v_o$,调节电位器以获取不同的测量电压值，记录测量数据\reftab{加法器}:
+
+\begin{table}[H]
+	\center
+	\large
+	\begin{tabular}{|c|ccccc|}
+		\hline
+		                                  & \multicolumn{3}{c|}{实测值}                                                                                & \multicolumn{1}{c|}{理论值} & \multirow{2}{*}{相对误差} \\ \cline{1-5}
+		                                  &
+		\multicolumn{1}{c|}{$v_{1pp}$/mV} &
+		\multicolumn{1}{c|}{$v_{2pp}$/mV} &
+		\multicolumn{1}{c|}{$v_{opp}$/V}  &
+		\multicolumn{1}{c|}{$v_{opp}$/V}  &
+		\\ \hline
+		$R_{s1}=1\mathrm{k}\Omega$        &
+		\multicolumn{1}{c|}{304.0}        &
+		\multicolumn{1}{c|}{148.0}        &
+		\multicolumn{1}{c|}{5.740}        &
+		\multicolumn{1}{c|}{5.708}        &
+		0.561\%                                                                                                                                                                                        \\ \hline
+		$R_{s1}=500\Omega$                &
+		\multicolumn{1}{c|}{304.0}        &
+		\multicolumn{1}{c|}{106.0}        &
+		\multicolumn{1}{c|}{4.800}        &
+		\multicolumn{1}{c|}{4.851}        &
+		1.051\%                                                                                                                                                                                        \\ \hline
+		实测电阻值                             & \multicolumn{5}{c|}{$R_1=9.762\mathrm{k}\Omega,R_2=5.043 \mathrm{k}\Omega,R_F=98.792 \mathrm{k}\Omega$}                                                    \\ \hline
+	\end{tabular}
+	\caption{加法器}
+	\label{加法器}
+\end{table}
+拍摄到的示波器波形图片如\reffig{加法电路——Rs1=500Ω}和\reffig{加法电路——Rs1=1KΩ}所示：
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\textwidth]{积分电路}
-	\caption{积分电路}
+	\includegraphics[width=0.8\textwidth]{500欧}
+	\caption{加法电路——Rs1=500Ω}
+	\label{加法电路——Rs1=500Ω}
 \end{figure}
 
-\section{实验过程}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{1k欧}
+	\caption{加法电路——Rs1=1KΩ}
+	\label{加法电路——Rs1=1KΩ}
+\end{figure}
 
+
+
+\subsection{比例积分电路}
+取$ R_1=10\mathrm{k}\Omega,R_F=100\mathrm{k}\Omega,C=0.22μF,R_P= 10\mathrm{k}\Omega$，$v_i$输入f=200Hz,峰峰值为1V的正方波。用示波器测试输入$v_i$和输出$v_o$,并画出其波形。
+
+积分器波形如\reffig{积分器波形}所示，黄色表示 $v_i$，蓝色表示$v_o$。
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{积分器波形}
+	\caption{积分器波形}
+	\label{积分器波形}
+\end{figure}
+
+手绘波形：
 \section{实验分析}
-
+经分析，在反向比例加法运算电路实验中，实测值和理论值的误差均在2\%以内，误差较小，基本满足实验精度要求，电路正常工作，输出信号稳定光滑无毛刺，噪声较小。
 \section{实验总结}
 
+本次实验较为简单，涉及到的主要是基本运放电路的搭建和仪器的使用，通过本次实验的学习，我能够较为熟练的在面包板上搭建起简单的电路。我也认识到，通过搭建电路做实验能够加深自己对理论知识的理解。
 
-
+与此同时，面包板的走线是一个难题，我的方法是尽量将元器件和跳线贴着面包板摆放，一来不容易松动，二来摆放工整，赏心悦目，同时方便检查。
 
 % ------------------------------------ 附录 ------------------------------------ %
 \clearpage
