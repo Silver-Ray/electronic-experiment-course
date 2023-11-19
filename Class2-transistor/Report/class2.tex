@@ -345,7 +345,7 @@
 实验步骤与要求如下。
 \begin{enumerate}
 	\item 建立新项目，绘出电路图。
-	      首先新建一个工程项目，然后放置元器件(M2N7000、Vdc、0 (GRD)等)、连线，画出如图 四 1所示的电路，并在MOSFET的漏极放置电流测试探针。
+	      首先新建一个工程项目，然后放置元器件(M2N7000、Vdc、0 (GRD)等)、连线，画出如\reffig{共源极放大电路}所示的电路，并在MOSFET的漏极放置电流测试探针。
 	\item 设置仿真简表。
 	      新建仿真简表(New Simualation Profile),设置直流扫描分析(DC Sweep)的主扫描(Primary Sweep),扫描变量为$\mathrm{V_{DD}}$,采用线性扫描，由0V开始至8V结束，步进为0.01V。
 	      设置直流扫描分析(DC Sweep)中的二级扫描(Secondray Sweep), 扫描变量为$\mathrm{V_{GG}}$,采用线性扫描，由1.7V开始至2.05V结束，步进为0.05V。
@@ -353,7 +353,7 @@
 \end{enumerate}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{共源极放大电路}
+	\includegraphics[width=0.8\textwidth]{共源极放大电路}
 	\caption{共源极放大电路}
 	\label{共源极放大电路}
 \end{figure}
@@ -407,14 +407,221 @@
 
 
 
-\section{实验原理}
+% \section{实验原理}
 
 \section{实验过程}
+\subsection{Multisim仿真}
+\subsubsection{直流工作点分析}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{直流工作点分析}
+	\caption{直流工作点分析}
+	\label{直流工作点分析}
+\end{figure}
+电路工作在饱和区，符合条件。
 
-\section{实验分析}
+静态工作点: $\mathrm{I_{DQ} = 1.481mA, V_{DS}=2.889V, V_{GS}=1.921V}$
 
+\subsubsection{瞬态仿真}
+瞬态分析（时域分析）得到输入输出电压曲线如\reffig{瞬态分析}所示，增益为：
+
+$$
+	A_v = \frac{V_o}{V_i} = 23.3877
+$$
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{瞬态分析}
+	\caption{瞬态分析}
+	\label{瞬态分析}
+\end{figure}
+
+\subsubsection{交流扫描得到幅频特性曲线}
+中频增益：$\mathrm{A_V=27.3847dB = 23.4>10}$符合要求
+
+上限频率：$\mathrm{f_H=1.5654MHz>100KHz}$符合要求
+
+下限频率：$\mathrm{f_L=35.1350Hz<100Hz}$符合要求
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{幅频特性曲线}
+	\caption{幅频特性曲线}
+	\label{幅频特性曲线}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{相频特性}
+	\caption{相频特性}
+	\label{相频特性}
+\end{figure}
+\subsubsection{AC模式测量输入阻抗}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{输入阻抗}
+	\caption{输入阻抗}
+	\label{输入阻抗}
+\end{figure}
+Ri=68.5184KΩ>50KΩ，符合要求
+
+\subsubsection{AC模式测量输出阻抗}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{输出阻抗}
+	\caption{输出阻抗}
+	\label{输出阻抗}
+\end{figure}
+\vspace{-1em}
+Ro=5.0937KΩ<5.1KΩ符合要求。
+
+由上述仿真实验可以得到，该电路符合实验要求。
+\vspace{-1em}
+\subsubsection{暂态仿真观察失真现象}
+饱和失真：
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{饱和失真}
+	\caption{饱和失真}
+	\label{饱和失真}
+\end{figure}
+
+截止失真：
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{截止失真}
+	\caption{截止失真}
+	\label{截止失真}
+\end{figure}
+
+\subsection{实验操作}
+\subsubsection{测量静态工作点}
+连接好电路后，检查无误后接通电源。用数字万用表的直流电压档测量电路的$\mathrm{V_D}$(漏极对地电压)，调整电位器$\mathrm{R_P}$，使$\mathrm{V_D}$为一合适电压。再测出电路的$\mathrm{V_G}$(栅极对地电压)和$\mathrm{V_S}$(源极对地电压)，填入\reftab{静态工作点}中，并计算静态工作点Q。
+\vspace{1em}
+
+\begin{table}[H]
+	\begin{tabular}{|cccccc|}
+		\hline
+		\multicolumn{3}{|c|}{实测值}                                                                                    & \multicolumn{3}{c|}{计算值}                                                                                                                                                                                                  \\ \hline
+		\multicolumn{1}{|c|}{$V_G/V$}                                                                                &
+		\multicolumn{1}{c|}{$V_S/V$}                                                                                 &
+		\multicolumn{1}{c|}{$V_D/V$}                                                                                 &
+		\multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}$I_{DQ}=V_S/R_S$\\ /mA\end{tabular}}  &
+		\multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}$V_{GSQ}=V_G-V_S/V$\\ /V\end{tabular}} &
+		\begin{tabular}[c]{@{}c@{}}$V_{DSQ}=V_D-V_S$\\ /V\end{tabular}                                                                                                                                                                                                                                                    \\ \hline
+		\multicolumn{1}{|c|}{2.548}                                                                                  & \multicolumn{1}{c|}{1.026}                                                                                                 & \multicolumn{1}{c|}{6.959} & \multicolumn{1}{c|}{1.004} & \multicolumn{1}{c|}{1.522} & 5.933 \\ \hline
+		\multicolumn{1}{|c|}{实测电阻值}                                                                                  & \multicolumn{5}{c|}{$R_{g1}=99.130K\Omega,R_{g2}=99.025K\Omega,R_d=5.021K\Omega, R_{s1}=974.90\Omega,R_{s2}=47.354\Omega$}                                                                                                \\ \hline
+	\end{tabular}
+	\caption{静态工作点}
+	\label{静态工作点}
+\end{table}
+\subsubsection{性能测试}
+\begin{equation}
+	A_v  = \frac{V_o}{V_i} =\frac{472.7mV}{30.4mV}=15.549 > 10
+\end{equation}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{性能测试}
+	\caption{性能测试}
+	\label{性能测试}
+\end{figure}
+
+\subsubsection{输入电阻}
+图中R取值尽量与$R_i$接近，用示波器的一个通道始终监视$v_i$波形，另一个通道先后测量开关S闭合和断开时对应的输出电压 $v_{o_1}$和 $v_{o2}$，则输入电阻为：
+\begin{equation}
+	R_i = \frac{v_{o2}}{v_{o1}-v_{o2}} \cdot R
+\end{equation}
+
+取 $\mathrm{R=75K}\Omega$， 则有
+$$R_i = \frac{244.9}{473.2-244.9}\times 75 = 80.453\mathrm{K}\Omega$$
+\begin{figure}[H]
+	\begin{minipage}[t]{0.5\linewidth}
+		\centering
+		\includegraphics[width=1\textwidth]{测Ri不接电阻}
+		\caption{测Ri不接电阻}
+		\label{测Ri不接电阻}
+	\end{minipage}%
+	\begin{minipage}[t]{0.5\linewidth}
+		\centering
+		\includegraphics[width=1\textwidth]{测Ri接电阻}
+		\caption{测Ri接电阻}
+		\label{测Ri接电阻}
+	\end{minipage}
+\end{figure}
+
+\subsubsection{输出电阻}
+在输出波形不失真情况下，用示波器分别测量负载开路时的输出电压值$\mathrm{V_o}$和接入$\mathrm{R_L}$后，负载上的电压值$\mathrm{V_{oL}}$，则输出电阻为：
+
+\begin{equation}
+	R_o  = (\frac{V_o}{V_{oL}}-1)R_L
+\end{equation}
+
+取 $R_L = 5.1K\Omega$，则有：
+
+\begin{equation}
+	R_o  = (\frac{902.2}{427.7}-1)\times 5.1\mathrm{K} =5.673 \mathrm{K}\Omega
+\end{equation}
+
+\begin{figure}[H]
+	\begin{minipage}[t]{0.5\linewidth}
+		\centering
+		\includegraphics[width=1\textwidth]{测Ro接负载}
+		\caption{测Ro接负载}
+		\label{测Ro接负载}
+	\end{minipage}%
+	\begin{minipage}[t]{0.5\linewidth}
+		\centering
+		\includegraphics[width=1\textwidth]{测Ro开路}
+		\caption{测Ro开路}
+		\label{测Ro开路}
+	\end{minipage}
+\end{figure}
+
+\subsubsection{通频带测试}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+		\hline
+		f(Hz)                                  & 27      & 40      & 100     & 500     & 1K      & 10K     & 100K    & 500K    & 1.42M   \\ \hline
+		$V_{opp}$                              & 342.0   & 399.8   & 466.9   & 486.8   & 483.1   & 482.7   & 479.5   & 438.0   & 342.0   \\ \hline
+		$20\lg\left\vert A_v \right\vert (dB)$ & 21.1381 & 22.4944 & 23.8421 & 24.2046 & 24.1383 & 24.1311 & 24.0733 & 23.2871 & 21.1381 \\ \hline
+	\end{tabular}
+\end{table}
+
+
+\subsubsection{失真波形}
+\begin{table}[H]
+	\begin{tabular}{|ccc|ccc|c|}
+		\hline
+		\multicolumn{3}{|c|}{实测值}                                                                                   & \multicolumn{3}{c|}{计算值}   & \multirow{2}{*}{失真类型}                                                                           \\ \cline{1-6}
+		\multicolumn{1}{|c|}{$V_G/V$}                                                                               &
+		\multicolumn{1}{c|}{$V_S/V$}                                                                                &
+		$V_D/V$                                                                                                     &
+		\multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}$I_{DQ}=V_S/R_s$\\ /mA\end{tabular}} &
+		\multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}$V_{GSQ}=V_G-V_S$\\ /V\end{tabular}}  &
+		\begin{tabular}[c]{@{}c@{}}$V_{DSQ}=V_D-V_S$\\ /V\end{tabular}                       &
+		\\ \hline
+		\multicolumn{1}{|c|}{3.560}                                                                                 & \multicolumn{1}{c|}{1.918} & 2.590                 & \multicolumn{1}{c|}{1.825} & \multicolumn{1}{c|}{1.642} & 0.672  & 饱和失真 \\ \hline
+		\multicolumn{1}{|c|}{1.679}                                                                                 & \multicolumn{1}{c|}{0.304} & 10.503                & \multicolumn{1}{c|}{0.289} & \multicolumn{1}{c|}{1.375} & 10.199 & 截止失真 \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{饱和失真波形图}
+	\caption{饱和失真波形图}
+	\label{饱和失真波形图}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{截止失真波形图}
+	\caption{截止失真波形图}
+	\label{截止失真波形图}
+\end{figure}
+
+\clearpage
 \section{实验总结}
 
-
+这次实验增强了我对MOSFET的理解，亲身学习并调试出了两种失真波形，复习并更好的理解了模电学的知识。并且也了解并简单掌握了PSpice和Multisim电路仿真的操作方法。
 
 \end{document}
