@@ -279,7 +279,7 @@
 
 
 % ------------------------------------ 标题页 ----------------------------------- %
-\title{音响放大器的设计} % 论文题目
+\title{信号产生和变换电路} % 论文题目
 \def\school{电子信息与通信学院} % 院系
 \def\classnum{信卓2201班} % 专业班级
 \author{董浩} % 姓名
@@ -307,84 +307,111 @@
 \seccontent
 
 \section{实验名称}
-音响放大器的设计
+信号的产生、分解与合成
 \section{实验目的}
-\begin{enumerate}
-	\item 音响放大器的基本组成
-	\item 音调特性控制方法与实现原理
-	\item 了解集成功率放大器内部电路工作原理，掌握其外围电路的设计与主要性能参数的测试方法；
-	\item 掌握音响放大器的设计方法与电子线路系统的装调技术---综合运用所学知识，进行小型多级电子线路系统的设计与装调。
-\end{enumerate}
-
-
+设计一个信号产生、分解与合成电路，能够产生所需频率的方波，和三角波，并对所产生的方波进行滤波分解，产生多个不同频率的正弦信号，再将这些信号再合成为近似方波信号
 \section{实验元器件}
 \begin{table}[H]
-	\centering
+	\center
 	\begin{tabularx}{0.8\textwidth}{|X|X|X|}
 		\hline
-		名称                    & 型号（参数） & 数量 \\ \hline
-		\multirow{2}{*}{集成功放} & LM386  & 1  \\ \cline{2-3}
-		                      & NE5532 & 3  \\ \hline
-		\multirow{6}{*}{电阻}   & 10KΩ   & 5  \\ \cline{2-3}
-		                      & 13KΩ   & 1  \\ \cline{2-3}
-		                      & 30KΩ   & 2  \\ \cline{2-3}
-		                      & 47KΩ   & 3  \\ \cline{2-3}
-		                      & 75KΩ   & 1  \\ \cline{2-3}
-		                      & 10Ω 2W & 1  \\ \hline
-		\multirow{7}{*}{电容}   & 0.01μF & 2  \\ \cline{2-3}
-		                      & 0.22μF & 1  \\ \cline{2-3}
-		                      & 0.1μF  & 1  \\ \cline{2-3}
-		                      & 1μF    & 1  \\ \cline{2-3}
-		                      & 10μF   & 8  \\ \cline{2-3}
-		                      & 220μF  & 2  \\ \cline{2-3}
-		                      & 470μF  & 1  \\ \hline
-		\multirow{2}{*}{电位器}  & 10KΩ   & 3  \\ \cline{2-3}
-		                      & 470KΩ  & 2  \\ \hline
-		话筒                    & 输出5mV  & 1  \\ \hline
-		音乐播放器                 & /      & 1  \\ \hline
+		名称                  & 型号（参数） & 数量 \\ \hline
+		运算放大器               & NE5532 & 3  \\ \hline
+		\multirow{5}{*}{电阻} & 5.1KΩ  & 1  \\ \cline{2-3}
+		                    & 10KΩ   & 3  \\ \cline{2-3}
+		                    & 20KΩ   & 1  \\ \cline{2-3}
+		                    & 47KΩ   & 1  \\ \cline{2-3}
+		                    & 100KΩ  & 1  \\ \hline
+		\multirow{2}{*}{电容} & 0.1μF  & 1  \\ \cline{2-3}
+		                    & 0.01μF & 1  \\ \hline
 	\end{tabularx}
 \end{table}
 \section{实验任务}
-设计一个音响
-\subsection{功能要求}
-具有话音放大、音调控制、音量控制、卡拉OK伴唱等功能（不含电子混响）。
-\subsection{已知条件}
 \begin{enumerate}
-	\item	集成功放LM386。
-	\item	话筒600Ω，输出信号5mV。
-	\item	集成运放NE5532。
-	\item	10Ω/2W负载电阻1只。
-	\item	8Ω/4W扬声器1只。
-	\item	音源（MP3 or PC）。
-	\item	电源电压±9V(双电源)。
-\end{enumerate}
-
-\subsection{技术指标要求}
-\begin{enumerate}
-	\item	额定功率：Po≥0.3W（γ<3%）
-	\item	负载阻抗：RL=10Ω（2W）
-	\item	频率响应：fL=50Hz，fH=20kHz
-	\item	输入阻抗：Ri>>20kΩ
-	\item	音调控制特性：1kHz处增益为0dB、125Hz和8kHz处有12dB的调节范围，AVL=AVH≥20dB(选做)
-\end{enumerate}
-
-\subsection{测量内容}
-\begin{enumerate}
-	\item   测量音调控制特性，填入表4.7.4，并绘制音调控制特性曲线
-	\item	测量频率为1kHz时的输出功率Po及整机电压增益Av，绘制1kHz时的整机输入输出波形
-	\item	输入阻抗Ri
-	\item	输出效率
+	\item 设计信号产生电路：能够产生频率为5KHz峰峰值为10V的方波，再由方波生成对应频率，峰峰值为6V的三角波。
+	\item 设计信号分解、合成电路：对所产生的方波进行滤波分解，产生该方波的一次、三次谐波正弦信号，再将这些信号再合成为近似方波信号。
 \end{enumerate}
 
 
 \section{实验原理}
+\subsection{信号发生电路}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{信号发生}
+	\caption{信号发生}
+	\label{信号发生}
+\end{figure}
+对于同向迟滞比较器，有:
+\begin{equation}
+	V_+ = \frac{R_2}{R_2+R_3+RP_1}V_{o_1}+\frac{R_3+RP_1}{R_2+R_3+RP_1}V_{ia}
+\end{equation}
+其中：
+\begin{equation}
+	V_{ia} = \frac{R_2}{R_2+R_3+RP_1}V_{o1}
+\end{equation}
+故有：
+\begin{equation}
+	V_{T-} = \frac{-R_2}{R_3+RP_1}V_{CC},V_{T+}=\frac{R_2}{R_3+RP_1}V_{CC}
+\end{equation}
+即得到方波。
 
+对于反向积分器，有：
+\begin{equation}
+	v_{o2}=-\frac{1}{C_2}\int_{t_0}^{t_1} \frac{v_{o_1}}{R_4+RP_2}dt-v_{c2}(t_0)=\pm \frac{v_{CC}}{(R_4+RP_2)C_2}+v_{o2}(t_0)
+\end{equation}
+输出$v_{o1}$为高电平（$+v_{CC}$) ，比较器门限电压为$V_{T-}$。这时积分器开始反向积分，三角波vo2线性下降。当vo2下降到$V_{T-}$时，比较器翻转，输出$v_{o1}$由高电平跳到低电平,门限电压为$V_{T+}$这时积分器又开始正向积分，$v_{o2}$线性增加。如此反复，就可自动产生方波-三角波。
+
+\subsection{信号分离电路}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{二阶低通滤波器.png}
+	\caption{二阶低通滤波器}
+	\label{二阶低通滤波器}
+\end{figure}
+特征角频率
+$$
+	\begin{aligned}
+		\omega_0 = \frac{1}{\sqrt{C_1C_2R_1R_2}} \\
+		f_0=\frac{1}{2\pi \sqrt{C_1C_2R_1R_2}}   \\
+		Q=\frac{\sqrt{C_1C_2R_1R_2}}{C_2(R_1+R_2)}
+	\end{aligned}
+$$
+设计二阶巴特沃斯低通滤波器如\reffig{二阶低通设计}所示，特征频率5KHz：
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{二阶低通设计}
+	\caption{二阶低通设计}
+	\label{二阶低通设计}
+\end{figure}
+设计二阶巴特沃斯带通滤波器如\reffig{二阶带通设计}所示，特征频率15KHz,带宽2.5KHz：
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{二阶带通设计}
+	\caption{二阶带通设计}
+	\label{二阶带通设计}
+\end{figure}
+\subsection{信号合成电路}
+先使用移相器获得相位相同的波形，再使用加法器电路合成两波形，如\reffig{移项与合成电路}所示：
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{移项与合成电路.png}
+	\caption{移项与合成电路}
+	\label{移项与合成电路}
+\end{figure}
 \section{实验过程}
 
 \section{实验分析}
-
+$$
+	V' = 22.60V  V=24V
+	R = \frac{22.6V}{24.3V-22.6V}\times 100K = 1329.41176470588 K
+$$
 \section{实验总结}
 
 
+
+% ------------------------------------ 附录 ------------------------------------ %
+\clearpage
+\appendix
+\phantomsection
 
 \end{document}
