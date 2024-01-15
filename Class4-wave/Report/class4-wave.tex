@@ -398,16 +398,40 @@ $$
 	\caption{移项与合成电路}
 	\label{移项与合成电路}
 \end{figure}
+
+\section{仿真分析}
+\subsection{信号发生电路}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{信号发生仿真}
+	\caption{信号发生仿真}
+	\label{信号发生仿真}
+\end{figure}
+
+\subsection{低通滤波}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{二阶低通仿真}
+	\caption{二阶低通仿真}
+	\label{二阶低通仿真}
+\end{figure}
+\subsection{带通滤波}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{二阶带通仿真.png}
+	\caption{二阶带通仿真}
+	\label{二阶带通仿真}
+\end{figure}
 \section{实验过程}
+如图所示连接电路，调整电位器阻值合适后接入电路，微调电位器，调整方波和三角波的频率和峰峰值至符合要求。搭建滤波器电路时，在电源和地间加入适当的滤波电容。波形符合要求，通过验收。
 
-\section{实验分析}
-$$
-	V' = 22.60V  V=24V
-	R = \frac{22.6V}{24.3V-22.6V}\times 100K = 1329.41176470588 K
-$$
 \section{实验总结}
+方波的幅度由$+V_{CC}$和$–V_{EE}$决定，小于它们1V左右；三角波幅度可由$R_{P1}$进行调节，但会影响频率。调节$R_{P2}$，可调节频率，且不会影响三角波幅度，可用$R_{P2}$实现频率微调，用$C_2$改变频率范围。
+误差分析：
+测量存在误差和实验电路的局限性，输出的波形并不是标准的方波和三角波，而是有一些杂量。
 
-
+此外，滤波电路需要特别注意连线，否则会出现高频自激。
 
 % ------------------------------------ 附录 ------------------------------------ %
 \clearpage

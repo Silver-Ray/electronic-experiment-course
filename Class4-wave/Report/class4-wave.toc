@@ -6,7 +6,10 @@
 \contentsline {subsection}{\numberline {5.1}信号发生电路}{2}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}信号分离电路}{3}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}信号合成电路}{4}{subsection.5.3}%
-\contentsline {section}{\numberline {6}实验过程}{5}{section.6}%
-\contentsline {section}{\numberline {7}实验分析}{5}{section.7}%
-\contentsline {section}{\numberline {8}实验总结}{5}{section.8}%
+\contentsline {section}{\numberline {6}仿真分析}{5}{section.6}%
+\contentsline {subsection}{\numberline {6.1}信号发生电路}{5}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}低通滤波}{5}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}带通滤波}{6}{subsection.6.3}%
+\contentsline {section}{\numberline {7}实验过程}{6}{section.7}%
+\contentsline {section}{\numberline {8}实验总结}{6}{section.8}%
 \contentsfinish 
